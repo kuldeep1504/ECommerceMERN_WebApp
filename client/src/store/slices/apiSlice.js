@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:5000/api',
+  baseUrl: import.meta.env.VITE_API_URL || 'https://ecommercemern-webapp.onrender.com',
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.userInfo?.token;
     if (token) {
